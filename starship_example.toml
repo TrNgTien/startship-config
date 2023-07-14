@@ -1,0 +1,141 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+
+format = """
+$localip\
+$hostname\
+$battery\
+$directory\
+$git_branch\
+$git_status\
+$c\
+$golang\
+$java\
+$nodejs\
+$rust\
+$dart\
+$docker_context\
+$kubernetes\
+$sudo\
+$time\
+"""
+
+# [username]
+# show_always = true
+# style_user = "bold dimmed blue"
+# style_root = "fg:#06969A"
+# format = '[$user ]($style)'
+
+[directory]
+style = "fg:#DA627D"
+format = "[ $path ]($style)"
+truncation_length = 2
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "📄 "
+"Downloads" = "📥 "
+
+[hostname]
+ssh_only = false
+format = "<[$hostname]($style)>"
+trim_at = "-"
+style = "bold dimmed white"
+disabled = true
+
+
+[package]
+disabled = true
+
+[dart]
+style = "bg:#86BBD8"
+format = 'via [ $version](bold #86BBD8) '
+
+[python]
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+[nodejs]
+symbol = ""
+style = "fg:#6cc24a"
+format = " via [$symbol($version)]($style)"
+
+[c]
+symbol = "© "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
+ 
+[docker_context]
+symbol = "🐳"
+style = "fg:#06969A"
+format = '[[ $symbol $context ](fg:#06969A)]($style) $path'
+
+[git_branch]
+symbol = ""
+style = "fg:#FCA17D"
+format = '[[ $symbol $branch ](fg:#FCA17D)]($style)'
+  
+[git_status]
+conflicted = " ⚔️ "
+ahead = " 🏎️ 💨 ×${count}"
+behind = " 🐢 ×${count}"
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
+untracked = " 🛤️  ×${count}"
+stashed = " 📦 "
+modified = " 📝 ×${count}"
+staged = "  🗃️  ×${count}"
+renamed = " 📛 ×${count}"
+deleted = " 🗑️  ×${count}"
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[golang]
+symbol = "🐹 "
+style = "fg:#86BBD8"
+format = '[[ $symbol ($version) ](fg:#86BBD8)]($style)'
+  
+  
+[java]
+symbol = "☕ "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
+
+[rust]
+symbol = ""
+style = "fg:#FCA17D"
+format = '[[ $symbol ($version) ](fg:#FCA17D)]($style)'
+
+[kubernetes]
+format = 'on [󱃾 ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+detect_files = ['k8s']
+disabled = false
+
+[kubernetes.context_aliases]
+'dev.local.cluster.k8s' = 'dev'
+'.*/openshift-cluster/.*' = 'openshift'
+'gke_.*_(?P<var_cluster>[\w-]+)' = 'gke-$var_cluster'
+
+[kubernetes.user_aliases]
+'dev.local.cluster.k8s' = 'dev'
+'root/.*' = 'root'
+
+[localip]
+ssh_only = false
+format = '@[$localipv4](bold red) '
+disabled = false
+
+
+[sudo]
+style = 'bold green'
+symbol = '🧙 💻 '
+disabled = false
+
+[time]
+disabled = false
+time_format = "%r" # Hour:Minute:seconds Format
+style = "fg:#33658A"
+format = ' [[  $time ](fg:#33658A)]($style)'
