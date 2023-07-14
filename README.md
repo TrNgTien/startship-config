@@ -4,6 +4,8 @@ Already config for multiple language, you can also refer and customize by your o
 
 # Customize syntax by Starship: 
 
+Follow guideline of Startship then custom
+
 https://starship.rs/config/
 
 ![image](https://github.com/TrNgTien/startship-config/assets/66483590/dffc865b-637c-44b0-9213-f86e91d78c45)
