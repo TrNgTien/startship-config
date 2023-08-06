@@ -2,6 +2,11 @@
 
 Already config for multiple language, you can also refer and customize by your own
 
+# Start install starship:
+Follow this guideline
+
+https://starship.rs/guide/#%F0%9F%9A%80-installation
+
 # Customize syntax by Starship: 
 
 Follow guideline of Startship then custom
